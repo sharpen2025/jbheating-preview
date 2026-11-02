@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>중부난방공사 · A안 뉴스 벤토형</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="common.css">
+<style>
+
+/* A안 · 뉴스 벤토형 */
+.qtab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:30;background:var(--gr);border-radius:0 14px 14px 0;overflow:hidden;width:76px}
+.qtab a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:76px;font-size:11.5px;font-weight:600;color:var(--sub);letter-spacing:0}
+.qtab a svg{width:24px;height:24px}
+.qtab a.is-on{background:var(--or);color:#fff}
+.qtab a:not(.is-on):hover{color:var(--or)}
+
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;height:660px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;display:block}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.03)}
+.b-main{display:grid;grid-template-rows:1fr 186px;background:var(--gr)}
+.b-main .ph{position:relative;overflow:hidden}
+.b-main .bar{background:var(--char);color:#fff;padding:32px 34px;display:flex;flex-direction:column;justify-content:space-between}
+.b-main .bar small{font-size:14px;font-weight:600;color:var(--or);display:block;margin-bottom:8px}
+.b-main .bar h3{font-size:25px;line-height:1.45;font-weight:700;letter-spacing:-.03em}
+.b-main .bar .ic-arr{align-self:flex-end;margin-top:-18px}
+.b-side{display:grid;grid-template-rows:1.2fr 1fr 1fr;gap:22px;min-height:0}
+.b-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;min-height:0}
+.ph-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.62))}
+.ph-card .cap{position:absolute;left:28px;right:60px;bottom:24px;color:#fff;font-size:20px;font-weight:700;z-index:1;line-height:1.4}
+.ph-card .ic-arr{position:absolute;right:22px;top:22px;color:#fff;z-index:1}
+.ph-card.wide .cap{font-size:22px;right:28px}
+.info-card{background:var(--gr);padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between}
+.info-card .t{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:700}
+.info-card .t .ic-arr{width:22px;height:22px}
+.info-card .n{display:flex;flex-direction:column;gap:2px}
+.info-card .n span{font-size:16px;font-weight:600;display:block;margin-bottom:2px}
+.info-card .n b{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.1;white-space:nowrap}
+.info-card .n i{font-style:normal;color:var(--or);font-weight:700;font-size:15px;line-height:1.35;white-space:nowrap;margin-top:4px}
+.new-card{background:var(--or);color:#fff;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between}
+.new-card .t{display:flex;justify-content:space-between;font-size:18px;font-weight:800}
+.new-card .t .ic-arr{width:22px;height:22px}
+.new-card p{font-size:18.5px;font-weight:600;line-height:1.45}
+
+/* STORY */
+.story{display:grid;grid-template-columns:1fr 460px;gap:72px;margin-top:64px;align-items:start}
+.alist li{border-bottom:1px solid var(--line)}
+.alist button{display:block;width:100%;text-align:left;padding:30px 30px;border-radius:var(--r);transition:background .2s}
+.alist li:first-child{border-bottom:0}
+.alist .meta{font-size:15px;font-weight:600;color:var(--or)}
+.alist .meta span{color:var(--mid);margin-left:10px;padding-left:10px;border-left:1px solid #ccc}
+.alist h3{font-size:22px;font-weight:700;margin-top:10px;line-height:1.45}
+.alist p{font-size:15.5px;color:var(--mid);margin-top:6px}
+.alist button.is-on{background:var(--gr)}
+.alist button.is-on h3{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.alist button:not(.is-on):hover h3{color:var(--or)}
+.sfig{position:sticky;top:120px;border-radius:var(--r);overflow:hidden;background:var(--char)}
+.sfig .ph{height:440px;position:relative}
+.sfig .ph img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity .45s}
+.sfig .ph img.is-on{opacity:1}
+.sfig .q{color:#fff;padding:28px 30px 30px;display:flex;gap:18px;align-items:flex-end;justify-content:space-between;min-height:170px}
+.sfig .q p{font-size:19px;font-weight:700;line-height:1.5}
+.sfig .q small{display:block;color:#A5A0A0;font-size:14px;font-weight:500;margin-top:12px}
+
+/* PRODUCT (대웅 BUSINESS 레이아웃) */
+.biz{position:relative;margin-top:30px;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}
+.biz-left{display:flex;flex-direction:column}
+.ptabs{display:flex;gap:26px;padding:30px 0 34px;flex-wrap:wrap}
+.ptabs button{font-size:19.5px;font-weight:600;color:#55504F;padding-bottom:8px;border-bottom:3px solid transparent}
+.ptabs button.is-on{color:var(--or);border-color:var(--or);font-weight:700}
+.biz-card{flex:1;background:var(--char);color:#fff;border-radius:var(--r) 0 0 var(--r);padding:52px 56px 54px;position:relative;min-height:316px}
+.biz-card::after{content:"";position:absolute;right:0;top:-22px;width:22px;height:22px;background:radial-gradient(circle at 0 0,transparent 21.5px,var(--char) 22px)}
+.biz-card .pn{display:none}
+.biz-card .pn.is-on{display:block}
+.biz-card h3{font-size:38px;font-weight:700;letter-spacing:-.03em;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.biz-card h4{font-size:20px;font-weight:700;margin-top:16px}
+.biz-card p{font-size:17px;color:#B8B3B3;margin-top:18px;line-height:1.65;max-width:560px}
+.biz-vis{border-radius:var(--r) var(--r) var(--r) 0;overflow:hidden;position:relative;min-height:520px;margin-top:46px}
+.biz-vis .pv{position:absolute;inset:0;opacity:0;transition:opacity .4s}
+.biz-vis .pv.is-on{opacity:1}
+.biz-vis .pv img{width:100%;height:100%;object-fit:cover}
+.biz-vis .pv .cap2{position:absolute;left:20px;bottom:18px;background:rgba(32,29,29,.75);color:#fff;font-size:13px;padding:6px 12px;border-radius:999px}
+
+/* GUIDE */
+.guide{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:60px}
+.guide h3{font-size:21px;font-weight:700;margin-bottom:18px}
+.guide li+li{margin-top:12px}
+.guide a{display:flex;justify-content:space-between;align-items:center;background:var(--gr);border-radius:var(--r);padding:22px 24px;font-size:17px;color:#55504F;font-weight:500;transition:.2s}
+.guide a .ic-arr{width:20px;height:20px;color:#8A8585}
+.guide a:hover{background:var(--char);color:#fff}
+.guide a:hover .ic-arr{color:var(--or)}
+
+@media (max-width:1279px){ .qtab{display:none} }
+@media (max-width:1100px){
+  .bento{height:auto;grid-template-columns:1fr}
+  .b-main{height:560px}
+  .b-side{grid-template-rows:300px 200px 200px}
+  .story{grid-template-columns:1fr}
+  .sfig{position:relative;top:0}
+  .biz{grid-template-columns:1fr}
+  .biz-vis{order:-1;margin-top:0;min-height:380px;border-radius:var(--r)}
+  .biz-card{border-radius:var(--r);margin-top:0}
+  .biz-card::after{display:none}
+  .guide{grid-template-columns:1fr 1fr;gap:40px 22px}
+}
+@media (max-width:760px){
+  body{padding-bottom:62px}
+  .bento{margin-top:20px;gap:12px}
+  .b-main{height:auto;grid-template-rows:240px auto}
+  .b-main .bar{padding:22px 22px}
+  .b-main .bar h3{font-size:19px}
+  .b-main .bar .ic-arr{margin-top:8px}
+  .b-side{grid-template-rows:auto;gap:12px}
+  .b-side>.ph-card.wide{height:210px}
+  .b-row{gap:12px}
+  .b-row>*{min-height:168px}
+  .ph-card .cap,.ph-card.wide .cap{font-size:15.5px;left:16px;right:16px;bottom:14px}
+  .ph-card .ic-arr{right:12px;top:12px;width:20px;height:20px}
+  .info-card,.new-card{padding:18px 16px}
+  .info-card .t,.new-card .t{font-size:15px}
+  .info-card .n span{font-size:13px}
+  .info-card .n b{font-size:18.5px;letter-spacing:-.04em}
+  .info-card .n i{font-size:12.5px}
+  .new-card p{font-size:15px}
+  .story{margin-top:34px;gap:28px}
+  .alist button{padding:20px 16px}
+  .alist h3{font-size:17.5px}
+  .alist p{font-size:14px}
+  .alist .meta{font-size:13px}
+  .sfig .ph{height:260px}
+  .sfig .q{padding:20px;min-height:0}
+  .sfig .q p{font-size:16px}
+  .ptabs{gap:8px 18px;padding:22px 0}
+  .ptabs button{font-size:16px;border-bottom-width:2px}
+  .biz-vis{min-height:230px}
+  .biz-card{padding:28px 22px;min-height:0}
+  .biz-card h3{font-size:25px}
+  .biz-card h4{font-size:16px;margin-top:10px}
+  .biz-card p{font-size:15px}
+  .guide{grid-template-columns:1fr;margin-top:34px;gap:30px}
+  .guide h3{font-size:18px;margin-bottom:12px}
+  .guide a{padding:17px 18px;font-size:15.5px}
+  .guide li+li{margin-top:8px}
+}
+
+</style>
+</head>
+<body class="v-a">
+
+<div class="notice" data-notice>
+  <div class="notice-in">
+    <p class="notice-msg"><svg viewBox="0 0 24 24" fill="none" stroke="#EC5F3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg><span><em>공지</em> 동종업계 부정클릭에 엄중 대처합니다</span></p>
+    <label class="notice-today"><input type="checkbox" data-notice-today> 오늘 하루 보지 않기</label>
+    <button class="notice-x" type="button" data-notice-close aria-label="공지 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+  </div>
+</div>
+<header class="hd" id="top">
+  <div class="hd-in">
+    <a class="logo" href="#top" aria-label="중부난방공사 홈">
+  <svg class="logo-sym" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="1.5" fill="#201D1D"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#EC5F3A" stroke-width="3" stroke-linecap="round"/></svg>
+  <span class="logo-txt"><b>중부난방공사</b><small>JUNGBU HEATING</small></span>
+</a>
+    <nav class="gnb" aria-label="주메뉴"><a href="#">회사소개</a><a href="#">난방제품</a><a href="#">온수기</a><a href="#">조절기·컨벡터</a><a href="#">공사실적</a><a href="#">온라인주문</a><a href="#">고객센터</a></nav>
+    <div class="hd-util">
+      <div class="dd">
+        <button type="button" class="dd-btn" data-dd>상담전화 <svg class="ic-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z" fill="currentColor"/></svg></button>
+        <ul class="dd-list"><li><a href="tel:0415659204"><span>천안 본사</span><b>041-565-9204</b></a></li><li><a href="tel:027229204"><span>서울</span><b>02-722-9204</b></a></li><li><a href="tel:0313999204"><span>군포직영점</span><b>031-399-9204</b></a></li><li><a href="tel:0413569205"><span>당진직영점</span><b>041-356-9205</b></a></li><li><a href="tel:0415659204"><span>아산직영점</span><b>041-565-9204</b></a></li></ul>
+      </div>
+      <a class="hd-tel" href="tel:0415659204" aria-label="천안 본사 전화"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+      <button type="button" class="hd-ic hd-search" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button type="button" class="hd-ic" data-drawer-open aria-label="전체메뉴 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" data-drawer aria-hidden="true">
+  <div class="drawer-in">
+    <div class="drawer-hd"><a class="logo" href="#top" aria-label="중부난방공사 홈">
+  <svg class="logo-sym" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="1.5" fill="#201D1D"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#EC5F3A" stroke-width="3" stroke-linecap="round"/></svg>
+  <span class="logo-txt"><b>중부난방공사</b><small>JUNGBU HEATING</small></span>
+</a><button type="button" class="hd-ic" data-drawer-close aria-label="전체메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button></div>
+    <div class="drawer-grid"><div class="drawer-col"><h3>회사소개</h3><ul><li><a href="#">인사말</a></li><li><a href="#">시공 및 제품장점</a></li><li><a href="#">제품인증 및 특허</a></li><li><a href="#">자격현황</a></li><li><a href="#">찾아오시는길</a></li></ul></div><div class="drawer-col"><h3>난방제품</h3><ul><li><a href="#">전기온돌판넬</a></li><li><a href="#">전기온돌강화마루</a></li><li><a href="#">건식온수온돌</a></li><li><a href="#">초절전 밀폐이중관 온돌</a></li><li><a href="#">무전자파 온돌</a></li></ul></div><div class="drawer-col"><h3>온수기</h3><ul><li><a href="#">전기보일러</a></li><li><a href="#">고성능 전기온수기</a></li></ul></div><div class="drawer-col"><h3>조절기·컨벡터</h3><ul><li><a href="#">온도조절기</a></li><li><a href="#">조절기 판매가격표</a></li><li><a href="#">컨벡터</a></li></ul></div><div class="drawer-col"><h3>공사실적</h3><ul><li><a href="#">공장·사업장</a></li><li><a href="#">업무·휴게시설</a></li><li><a href="#">주거·재시공</a></li></ul></div><div class="drawer-col"><h3>온라인주문</h3><ul><li><a href="#">주문 안내</a></li><li><a href="#">주문하기</a></li></ul></div><div class="drawer-col"><h3>고객센터</h3><ul><li><a href="#">공지사항</a></li><li><a href="#">A/S 접수</a></li><li><a href="#">상담 신청</a></li></ul></div></div>
+    <div class="drawer-call"><a href="tel:0415659204"><span>천안 본사</span><b>041-565-9204</b></a><a href="tel:027229204"><span>서울</span><b>02-722-9204</b></a><a href="tel:0313999204"><span>군포직영점</span><b>031-399-9204</b></a><a href="tel:0413569205"><span>당진직영점</span><b>041-356-9205</b></a></div>
+  </div>
+</div>
+<nav class="qtab" aria-label="빠른 이동">
+  <a href="#news" data-q="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="16" rx="1.5"/><path d="M17 8h3v10a2 2 0 0 1-2 2M6.5 8h7M6.5 12h7M6.5 16h4"/></svg>NEWS</a>
+  <a href="#story" data-q="story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6"/></svg>STORY</a>
+  <a href="#product" data-q="product"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 11c0-2 2-2 2-4M12 11c0-2 2-2 2-4M17 11c0-2 2-2 2-4"/></svg>PRODUCT</a>
+  <a href="#guide" data-q="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>GUIDE</a>
+</nav>
+<main>
+  <section class="wrap" id="news" data-qs="news">
+    <div class="bento">
+      <a class="card b-main" href="#story">
+        <div class="ph"><img src="assets/kia-panel.jpg" alt="기아자동차 화성공장 내 전기온돌판넬 시공 바닥"></div>
+        <div class="bar"><div><small>대표 시공사례 · 2024</small><h3>기아자동차 화성공장, 34개실 1,100평<br>전기온돌판넬 직접 시공</h3></div><svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+      </a>
+      <div class="b-side">
+        <a class="card ph-card wide" href="#story"><img src="assets/kia-gate.jpg" alt="기아자동차 화성공장 정문"><span class="cap">원청 현대엔지니어링과 함께한 공장 증설 현장, 건설안전기사 보유 시공기사 파견</span><svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <div class="b-row">
+          <a class="card info-card" href="tel:0415659204"><span class="t">CALL <svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span><span class="n"><span>천안 본사 상담</span><b>041-565-9204</b><i>서울 02-722-9204</i></span></a>
+          <a class="card ph-card" href="#product"><img src="assets/ktng.jpg" alt="건식온수온돌 시공 현장"><span class="cap">건식온수온돌은 이렇게 시공합니다.</span><svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div class="b-row">
+          <a class="card new-card" href="#"><span class="t">WHAT'S NEW <svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span><p>(주)한진테크<br>NEP(신제품) 인증 획득</p></a>
+          <a class="card ph-card" href="#product"><img src="assets/kia-control.jpg" alt="벽면에 설치된 온도조절기"><span class="cap">조절기 용량, 꼭 확인하세요.</span><svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="story" data-qs="story">
+    <p class="label">JUNGBU의 <em>시공 현장 이야기</em></p>
+    <h2 class="h2">중부난방공사는 직접 설계하고,<br>직접 시공하며, 끝까지 책임집니다.</h2>
+    <div class="story">
+      <ul class="alist"><li><button type="button" class="is-on" data-story="0"><p class="meta">공장·사업장<span>2024.06–07</span></p><h3>기아자동차 화성공장 전기온돌판넬 시공</h3><p>분임토의장 외 34개실 1,100평. 판넬 시공 후 천연섬유보드로 마감했습니다.</p></button></li><li><button type="button" class="" data-story="1"><p class="meta">업무시설<span>2022.04</span></p><h3>한강변 신라교역 신축현장 전기온돌판넬 시공</h3><p>판넬마다 칼블럭으로 바닥에 고정해, 본드 시공 자연마루 마감까지 해냈습니다.</p></button></li><li><button type="button" class="" data-story="2"><p class="meta">재시공<span>2022.05</span></p><h3>심야전기 온돌 조절기 화재 피해 현장 재시공</h3><p>용량이 부족한 기계식 조절기가 부른 화재. 전력에 맞는 조절기 선택이 중요합니다.</p></button></li><li><button type="button" class="" data-story="3"><p class="meta">휴게시설<span>2021.06</span></p><h3>KT&G 직원 휴게실 건식온수온돌 시공</h3><p>열반사 알루미늄 시트를 쓴 조립형 건식온수온돌로 휴게실 55평을 시공했습니다.</p></button></li></ul>
+      <figure class="sfig">
+        <div class="ph"><img class="is-on" src="assets/kia-finish.jpg" alt="기아자동차 화성공장 전기온돌판넬 시공 현장 사진" data-simg="0"><img class="" src="assets/silla.jpg" alt="한강변 신라교역 신축현장 전기온돌판넬 시공 현장 사진" data-simg="1"><img class="" src="assets/refire.jpg" alt="심야전기 온돌 조절기 화재 피해 현장 재시공 현장 사진" data-simg="2"><img class="" src="assets/ktng.jpg" alt="KT&G 직원 휴게실 건식온수온돌 시공 현장 사진" data-simg="3"></div>
+        <figcaption class="q"><div><div data-sq="0" ><p>“안전교육과 조회를 매일 4차례씩 했던, 공사보다 안전이 더 기억에 남는 현장입니다.”</p><small>기아자동차 화성공장 시공 후기 중</small></div><div data-sq="1" hidden><p>“설계에 반영된 수입산 자연마루를 위해 판넬 한 장 한 장을 바닥에 고정했습니다.”</p><small>한강변 신라교역 신축현장 시공 후기 중</small></div><div data-sq="2" hidden><p>“누전차단기는 과부하를 잡아내지 못합니다. 조절기는 사용 전력에 맞는 용량을 써야 합니다.”</p><small>천안 원룸 재시공 후기 중</small></div><div data-sq="3" hidden><p>“전통 온돌의 전도·복사·대류 장점을 살린 조립형 건식 온수온돌입니다.”</p><small>KT&G 직원 휴게실 시공 후기 중</small></div></div><svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="product" data-qs="product">
+    <p class="label">JUNGBU의 <em>난방 솔루션</em></p>
+    <h2 class="h2">바닥부터 조절기까지,<br>공간에 맞는 난방을 제안합니다.</h2>
+    <div class="biz">
+      <div class="biz-left">
+        <div class="ptabs" role="tablist"><button type="button" data-tab="prd:panel" class="is-on">전기온돌판넬</button><button type="button" data-tab="prd:water" class="">온수온돌</button><button type="button" data-tab="prd:saving" class="">초절전 온돌</button><button type="button" data-tab="prd:boiler" class="">보일러·온수기</button><button type="button" data-tab="prd:ctrl" class="">조절기</button></div>
+        <div class="biz-card"><div class="pn is-on" data-panel="prd:panel" ><h3>전기온돌판넬<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><h4>(하이본)전기온돌판넬 · 전기온돌강화마루</h4><p>공장·사무실·숙소처럼 넓은 공간도 판넬 단위로 정확하게 시공합니다. 기아자동차 화성공장 34개실 1,100평을 직접 시공했습니다.</p></div><div class="pn" data-panel="prd:water" hidden><h3>(방고래) 건식온수온돌<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><h4>몰탈 없이 조립하는 온수온돌 바닥난방</h4><p>단열 패널 홈에 엑셀파이프를 넣고 열전도 강판을 얹는 조립형 구조로, 습식 미장을 대체합니다.</p></div><div class="pn" data-panel="prd:saving" hidden><h3>초절전 밀폐이중관 온돌<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><h4>[온돌400] 원형·평판형 · [온돌500] · [온돌800]</h4><p>밀폐 이중관 구조의 온돌400부터 평판형 무전자파 온돌500, 축열식 무전자파 온돌800까지 공간과 사용 시간에 맞춰 제안합니다.</p></div><div class="pn" data-panel="prd:boiler" hidden><h3>전기보일러 · 전기온수기<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><h4>난방과 온수를 함께 설계합니다</h4><p>바닥 난방 방식에 맞는 전기보일러와 고성능 전기온수기를 함께 상담하고 시공합니다.</p></div><div class="pn" data-panel="prd:ctrl" hidden><h3>온도조절기 · 컨벡터<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><h4>심야전기 DIGITAL-10 30A 53,000원부터</h4><p>조절기는 사용 전력에 맞는 용량이어야 합니다. 용량이 부족한 조절기는 화재로 이어질 수 있어, 현장에 맞는 제품을 권해 드립니다.</p></div></div>
+      </div>
+      <div class="biz-vis"><div class="pv is-on" data-pv="panel"><img src="assets/kia-panel2.jpg" alt="전기온돌판넬 시공 현장 · 기아자동차 화성공장"><span class="cap2">시공 현장 · 기아자동차 화성공장</span></div><div class="pv" data-pv="water"><img src="assets/ktng.jpg" alt="(방고래) 건식온수온돌 시공 현장 · 천안 KT&G 직원 휴게실"><span class="cap2">시공 현장 · 천안 KT&G 직원 휴게실</span></div><div class="pv concept-box" data-pv="saving"><span class="tag-note">개념도</span><svg class="concept" viewBox="0 0 480 360" role="img" aria-label="밀폐이중관 온돌 단면 개념도">
+  <path d="M120 80c0-12 12-12 12-24M200 80c0-12 12-12 12-24M280 80c0-12 12-12 12-24M360 80c0-12 12-12 12-24" stroke="#EC5F3A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <rect x="50" y="100" width="380" height="26" rx="3" fill="#C9A77C"/>
+  <rect x="50" y="126" width="380" height="56" fill="#fff" stroke="#201D1D" stroke-width="2.5"/>
+  <circle cx="90" cy="154" r="17" fill="#fff" stroke="#201D1D" stroke-width="2.5"/><circle cx="90" cy="154" r="8" fill="#EC5F3A"/><circle cx="150" cy="154" r="17" fill="#fff" stroke="#201D1D" stroke-width="2.5"/><circle cx="150" cy="154" r="8" fill="#EC5F3A"/><circle cx="210" cy="154" r="17" fill="#fff" stroke="#201D1D" stroke-width="2.5"/><circle cx="210" cy="154" r="8" fill="#EC5F3A"/><circle cx="270" cy="154" r="17" fill="#fff" stroke="#201D1D" stroke-width="2.5"/><circle cx="270" cy="154" r="8" fill="#EC5F3A"/><circle cx="330" cy="154" r="17" fill="#fff" stroke="#201D1D" stroke-width="2.5"/><circle cx="330" cy="154" r="8" fill="#EC5F3A"/><circle cx="390" cy="154" r="17" fill="#fff" stroke="#201D1D" stroke-width="2.5"/><circle cx="390" cy="154" r="8" fill="#EC5F3A"/>
+  <rect x="50" y="182" width="380" height="34" fill="#E4E0E0"/>
+  <rect x="50" y="216" width="380" height="54" fill="#B9B4B4"/>
+  <g font-size="13" font-weight="700" fill="#201D1D">
+  <text x="50" y="300">① 마감재</text><text x="140" y="300">② 밀폐 이중관</text><text x="262" y="300">③ 단열층</text><text x="352" y="300">④ 바닥</text></g>
+  <path d="M90 137v-4M90 171v4" stroke="#201D1D"/>
+</svg></div><div class="pv concept-box" data-pv="boiler"><span class="tag-note">개념도</span><svg class="concept" viewBox="0 0 480 360" role="img" aria-label="전기보일러 연결 개념도">
+  <rect x="60" y="70" width="110" height="170" rx="10" fill="#fff" stroke="#201D1D" stroke-width="3"/>
+  <rect x="80" y="95" width="70" height="34" rx="4" fill="#201D1D"/><text x="115" y="117" fill="#EC5F3A" font-size="14" font-weight="700" text-anchor="middle">45°C</text>
+  <circle cx="115" cy="185" r="22" fill="none" stroke="#201D1D" stroke-width="3"/><path d="M107 190c0-6 8-6 8-12M117 194c0-6 8-6 8-12" stroke="#EC5F3A" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M170 120h70v150h190M170 150h50v100h210" fill="none" stroke="#EC5F3A" stroke-width="4"/>
+  <path d="M170 150h50v100h210" fill="none" stroke="#9C9696" stroke-width="4"/>
+  <rect x="240" y="276" width="190" height="20" rx="3" fill="#E4E0E0"/>
+  <path d="M260 230c0-8 8-8 8-16M300 230c0-8 8-8 8-16M340 230c0-8 8-8 8-16M380 230c0-8 8-8 8-16" stroke="#EC5F3A" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+  <text x="115" y="268" font-size="14" fill="#201D1D" text-anchor="middle" font-weight="700">전기보일러</text>
+  <text x="335" y="320" font-size="14" fill="#201D1D" text-anchor="middle" font-weight="700">바닥 난방 배관</text>
+  <text x="300" y="110" font-size="12" fill="#EC5F3A" font-weight="700">공급</text><text x="300" y="166" font-size="12" fill="#8A8585" font-weight="700" dy="0">환수</text>
+</svg></div><div class="pv" data-pv="ctrl"><img src="assets/kia-control.jpg" alt="온도조절기 · 컨벡터 시공 현장 · 기아자동차 화성공장"><span class="cap2">시공 현장 · 기아자동차 화성공장</span></div></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="guide" data-qs="guide">
+    <p class="label">JUNGBU <em>바로가기</em></p>
+    <h2 class="h2">중부난방공사에 대해 궁금한 정보를<br>바로 만나보세요.</h2>
+    <div class="guide"><div><h3>가정 고객을 위한</h3><ul><li><a href="#">우리 집 난방 방식 상담<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">조절기 판매가격표<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">온라인 주문 안내<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul></div><div><h3>기업·관공서를 위한</h3><ul><li><a href="#">공사실적 전체 보기<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">자격현황<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">제품인증 및 특허<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul></div><div><h3>기존 사용자를 위한</h3><ul><li><a href="#">A/S 접수<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">조절기 화재 예방 안내<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">공지사항<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul></div><div><h3>협력업체를 위한</h3><ul><li><a href="#">협력업체 안내<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">직영점 연락처<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li><li><a href="#">찾아오시는길<svg class="ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li></ul></div></div>
+  </section>
+</main>
+<footer class="ft">
+  <div class="wrap ft-top">
+    <div class="ft-info">
+      <a class="logo logo--dark" href="#top" aria-label="중부난방공사 홈">
+  <svg class="logo-sym" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="1.5" fill="#fff"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#EC5F3A" stroke-width="3" stroke-linecap="round"/></svg>
+  <span class="logo-txt"><b>중부난방공사</b><small>JUNGBU HEATING</small></span>
+</a>
+      <dl class="ft-dl">
+        <div><dt>상호</dt><dd>(주)중부난방공사</dd></div>
+        <div><dt>대표</dt><dd>김명찬</dd></div>
+        <div><dt>사업자등록번호</dt><dd>312-86-69056</dd></div>
+        <div><dt>주소</dt><dd>충남 천안시 동남구 다가3길 4-1</dd></div>
+        <div><dt>대표전화</dt><dd><a href="tel:0415659204">041-565-9204</a> · 서울 <a href="tel:027229204">02-722-9204</a></dd></div>
+        <div><dt>이메일</dt><dd><a href="mailto:jbh9204@naver.com">jbh9204@naver.com</a></dd></div>
+      </dl>
+    </div>
+    <div class="ft-map"><div><h4>회사소개</h4><ul><li><a href="#">인사말</a></li><li><a href="#">시공 및 제품장점</a></li><li><a href="#">제품인증 및 특허</a></li><li><a href="#">자격현황</a></li><li><a href="#">찾아오시는길</a></li></ul></div><div><h4>난방제품</h4><ul><li><a href="#">전기온돌판넬</a></li><li><a href="#">전기온돌강화마루</a></li><li><a href="#">건식온수온돌</a></li><li><a href="#">초절전 밀폐이중관 온돌</a></li><li><a href="#">무전자파 온돌</a></li></ul></div><div><h4>조절기·컨벡터</h4><ul><li><a href="#">온도조절기</a></li><li><a href="#">조절기 판매가격표</a></li><li><a href="#">컨벡터</a></li></ul></div><div><h4>공사실적</h4><ul><li><a href="#">공장·사업장</a></li><li><a href="#">업무·휴게시설</a></li><li><a href="#">주거·재시공</a></li></ul></div><div><h4>고객센터</h4><ul><li><a href="#">공지사항</a></li><li><a href="#">A/S 접수</a></li><li><a href="#">상담 신청</a></li></ul></div></div>
+  </div>
+  <div class="wrap ft-bot">
+    <ul class="ft-terms"><li><a href="#"><b>개인정보처리방침</b></a></li><li><a href="#">이용약관</a></li><li><a href="#">이메일무단수집거부</a></li></ul>
+    <p class="ft-copy">© JUNGBU HEATING. All rights reserved.</p>
+    <div class="ft-side">
+      <div class="dd dd--up">
+        <button type="button" class="ft-family" data-dd>직영점 바로가기 <svg class="ic-caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0h10L5 6z" fill="currentColor"/></svg></button>
+        <ul class="dd-list"><li><a href="tel:0415659204"><span>천안 본사</span><b>041-565-9204</b></a></li><li><a href="tel:027229204"><span>서울</span><b>02-722-9204</b></a></li><li><a href="tel:0313999204"><span>군포직영점</span><b>031-399-9204</b></a></li><li><a href="tel:0413569205"><span>당진직영점</span><b>041-356-9205</b></a></li><li><a href="tel:0415659204"><span>아산직영점</span><b>041-565-9204</b></a></li></ul>
+      </div>
+      <button type="button" class="ft-topbtn" data-top aria-label="맨 위로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>TOP</span></button>
+    </div>
+  </div>
+</footer>
+<nav class="mbar" aria-label="모바일 빠른 이동">
+  <a href="#news" data-q="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="16" rx="1.5"/><path d="M17 8h3v10a2 2 0 0 1-2 2M6.5 8h7M6.5 12h7M6.5 16h4"/></svg>NEWS</a>
+  <a href="#story" data-q="story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M9 20v-6h6v6"/></svg>STORY</a>
+  <a href="#product" data-q="product"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 11c0-2 2-2 2-4M12 11c0-2 2-2 2-4M17 11c0-2 2-2 2-4"/></svg>PRODUCT</a>
+  <a href="#guide" data-q="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>GUIDE</a>
+  <a href="tel:0415659204" class="mbar-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>전화상담</a>
+</nav>
+<script src="common.js"></script>
+<script>
+
+document.querySelectorAll('[data-story]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var i = b.dataset.story;
+    document.querySelectorAll('[data-story]').forEach(function(x){ x.classList.toggle('is-on', x === b); });
+    document.querySelectorAll('[data-simg]').forEach(function(x){ x.classList.toggle('is-on', x.dataset.simg === i); });
+    document.querySelectorAll('[data-sq]').forEach(function(x){ x.hidden = x.dataset.sq !== i; });
+  });
+});
+document.addEventListener('jbtab', function(e){
+  if (e.detail.group !== 'prd') return;
+  document.querySelectorAll('[data-pv]').forEach(function(v){ v.classList.toggle('is-on', v.dataset.pv === e.detail.key); });
+});
+</script>
+</body>
+</html>

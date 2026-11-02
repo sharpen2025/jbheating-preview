@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>중부난방공사 · B안 360 솔루션 스타일</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--or:#FF5624;--or2:#F06A3F;--ink:#222;--ink2:#333;--sub:#6B6B6B;--gr:#F3F3F1;--gr2:#EFEFED;--line:#E2E2E0;--pad:70px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif;color:var(--ink);background:#fff;letter-spacing:-.02em;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+body.no-scroll{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+ul{list-style:none}
+.wrap{padding:0 var(--pad)}
+
+/* header */
+.hd{position:fixed;left:0;right:0;top:0;z-index:50;height:80px;display:flex;align-items:center;padding:0 var(--pad);transition:background .3s,box-shadow .3s}
+.hd.is-scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.logo{display:flex;align-items:center;gap:9px;transition:opacity .3s}
+.logo svg{width:34px;height:34px}
+.logo b{font-size:20px;font-weight:800;color:var(--or);letter-spacing:-.04em}
+.logo small{font-size:12px;color:#8a8a8a;font-weight:600;margin-left:8px;letter-spacing:.02em}
+.hd .logo{opacity:0;pointer-events:none}
+.hd.is-scrolled .logo{opacity:1;pointer-events:auto}
+.gnb{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:46px}
+.gnb a{font-size:17px;font-weight:500;color:var(--ink2);white-space:nowrap;padding:6px 0;position:relative}
+.gnb a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--or);transform:scaleX(0);transition:transform .25s}
+.gnb a:hover::after{transform:scaleX(1)}
+.hd-r{margin-left:auto;display:flex;align-items:center;gap:18px}
+.ic-btn{width:40px;height:40px;display:grid;place-items:center}
+.ic-btn svg{width:26px;height:26px}
+.hd-tel{display:none}
+
+/* drawer */
+.drawer{position:fixed;inset:0;z-index:90;background:#fff;opacity:0;visibility:hidden;transition:.3s;overflow:auto}
+.drawer.open{opacity:1;visibility:visible}
+.drawer-hd{height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad)}
+.drawer-bd{padding:40px var(--pad) 60px;display:grid;grid-template-columns:repeat(4,1fr);gap:44px 40px}
+.drawer-bd h3{font-size:22px;font-weight:700;margin-bottom:16px}
+.drawer-bd li a{display:block;font-size:16px;color:var(--sub);padding:6px 0}
+.drawer-bd li a:hover{color:var(--or)}
+.drawer-tel{grid-column:1/-1;border-top:1px solid var(--line);padding-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+
+/* pill btn */
+.pill{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 30px;border-radius:999px;background:var(--or);color:#fff;font-size:18px;font-weight:700;transition:background .2s}
+.pill:hover{background:#E8481A}
+.pill svg{width:18px;height:18px}
+.pill--sm{height:44px;font-size:15.5px;padding:0 22px}
+.chip{display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);font-size:15px;font-weight:600;background:#fff}
+.chip:hover{border-color:var(--or);color:var(--or)}
+
+/* hero */
+.hero{position:relative;height:820px;padding-top:80px}
+.hero-ph{position:absolute;left:39%;right:0;top:80px;bottom:110px;overflow:hidden;background:#ddd}
+.hero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease,transform 6s ease;transform:scale(1.04)}
+.hero-ph img.on{opacity:1;transform:scale(1)}
+.hero-txt{position:absolute;left:var(--pad);top:270px;width:min(36%,500px)}
+.hero-txt .cap{display:block;font-size:15px;color:var(--sub);margin-bottom:14px;font-weight:500}
+.hero-txt h1{font-size:46px;line-height:1.36;font-weight:700;letter-spacing:-.045em;color:var(--ink2);min-height:126px}
+.hero-txt .pill{margin-top:44px}
+.h-slide{display:none}
+.h-slide.on{display:block;animation:fadeUp .7s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-ctrl{position:absolute;left:var(--pad);bottom:130px;display:flex;align-items:center;gap:16px;font-size:16px;font-weight:500}
+.prog{width:150px;height:2px;background:#DDD;position:relative}
+.prog i{position:absolute;left:0;top:-1px;height:4px;background:var(--ink2);width:20%;transition:width .5s}
+.arw{width:44px;height:44px;display:grid;place-items:center}
+.arw svg{width:22px;height:22px}
+.hero-thumbs{position:absolute;left:30%;bottom:110px;display:flex;gap:10px;background:#fff;padding:12px 12px 0 0}
+.hero-thumbs button{width:126px;height:88px;overflow:hidden;position:relative;opacity:.55;transition:opacity .25s}
+.hero-thumbs button.on{opacity:1}
+.hero-thumbs button.on::after{content:"";position:absolute;inset:0;border:3px solid var(--or)}
+.hero-thumbs img{width:100%;height:100%;object-fit:cover}
+
+/* sections */
+.sec{padding-top:150px}
+.lab{font-size:16px;color:#8A8A8A;font-weight:500;letter-spacing:0;margin-bottom:14px;display:block}
+.h2{font-size:38px;line-height:1.42;font-weight:300;letter-spacing:-.045em}
+.h2 b{font-weight:700;display:block}
+.h2--bf b{display:inline}
+.lead{font-size:18px;color:var(--sub);margin-top:16px;line-height:1.6}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:0 44px;margin-top:56px}
+.story .col2{padding-top:140px}
+.st-card{position:relative;display:block;overflow:hidden;aspect-ratio:16/9;margin-bottom:44px;background:#ddd}
+.st-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.st-card:hover img{transform:scale(1.04)}
+.st-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.55));z-index:1}
+.st-card .t{position:absolute;left:44px;bottom:40px;right:40px;color:#fff;z-index:2}
+.st-card .t small{display:block;font-size:15px;font-weight:600;margin-bottom:10px;opacity:.9}
+.st-card .t strong{display:block;font-size:30px;line-height:1.38;font-weight:300;letter-spacing:-.04em}
+.st-card .t strong b{font-weight:700}
+.ref-note{position:absolute;right:14px;top:12px;z-index:2;font-size:12px;background:rgba(0,0,0,.45);color:#fff;padding:3px 8px;border-radius:4px}
+
+/* solution */
+.sol-head{padding-left:25.5%}
+.sol{margin-top:56px;display:flex;flex-direction:column;gap:70px}
+.sol-p{position:relative;background:var(--gr);display:grid;grid-template-columns:1fr 360px;align-items:end;min-height:300px}
+.sol-p:nth-child(odd){margin-left:25%}
+.sol-p:nth-child(even){margin-right:23%;grid-template-columns:360px 1fr}
+.sol-p .tx{padding:52px 60px 52px 9%}
+.sol-p:nth-child(even) .tx{order:2;padding-left:40px}
+.q{width:40px;height:24px;color:var(--or)}
+.sol-p .k{display:block;color:var(--or);font-size:19px;font-weight:700;margin:20px 0 8px}
+.sol-p p{font-size:21px;line-height:1.6;color:var(--ink2)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tags span{height:34px;padding:0 15px;border-radius:999px;background:#8C8C8C;color:#fff;font-size:15px;display:inline-flex;align-items:center}
+.sol-p .il{align-self:stretch;position:relative}
+.sol-p .il svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:calc(100% + 40px)}
+
+/* help: photo + product slider */
+.help{display:grid;grid-template-columns:57% 1fr;gap:44px;margin-top:60px;align-items:end}
+.help-ph{position:relative;aspect-ratio:16/10;overflow:hidden;display:block}
+.help-ph img{width:100%;height:100%;object-fit:cover}
+.help-ph::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.6))}
+.help-ph .top{position:absolute;left:30px;top:26px;color:#fff;z-index:1;font-size:21px;font-weight:700}
+.help-ph .top small{display:block;font-size:14px;font-weight:500;opacity:.85;margin-top:4px}
+.help-ph .bt{position:absolute;left:30px;bottom:30px;z-index:1;color:#fff}
+.help-ph .badge{display:inline-flex;height:44px;align-items:center;padding:0 22px;border-radius:999px;background:var(--or);font-size:19px;font-weight:700;margin-bottom:12px}
+.help-ph .bt strong{display:block;font-size:34px;font-weight:800;letter-spacing:-.05em;line-height:1.25}
+.pslide{min-width:0;margin-right:calc(var(--pad) * -1)}
+#product{overflow:hidden}
+.pslide-ctrl{display:flex;align-items:center;gap:16px;font-size:16px;font-weight:500;margin-bottom:22px}
+.pslide-ctrl .prog{width:200px}
+.ptrack{display:flex;gap:20px;overflow:hidden;scroll-behavior:smooth}
+.pcard{flex:0 0 300px;background:var(--gr);padding:30px 28px 26px;display:flex;flex-direction:column;min-height:350px}
+.pcard svg{width:120px;height:96px;margin-bottom:auto}
+.pcard small{color:var(--or);font-weight:700;font-size:14px;margin-top:26px}
+.pcard strong{font-size:21px;line-height:1.4;font-weight:700;margin-top:6px;letter-spacing:-.04em}
+.pcard span{font-size:15px;color:var(--sub);margin-top:8px;line-height:1.55}
+
+/* diagnose */
+.diag-head{padding-top:150px;padding-bottom:56px}
+.diag{background:var(--gr2);display:grid;grid-template-columns:1fr 1fr}
+.diag > div{padding:80px 6% 90px;position:relative;display:flex;flex-direction:column}
+.diag > div + div::before{content:"";position:absolute;left:0;top:40px;bottom:0;width:1px;background:#D2D2D0}
+.diag .k{color:var(--or);font-size:28px;font-weight:700}
+.diag h3{font-size:30px;line-height:1.45;font-weight:700;margin:40px 0 18px;letter-spacing:-.045em}
+.diag p{font-size:17.5px;color:var(--sub);line-height:1.6}
+.diag .pill{align-self:center;margin-top:56px}
+
+/* news grid */
+.news{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.nc{position:relative;aspect-ratio:1/1;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 26px;background:var(--gr)}
+.nc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nc.ph::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.65));z-index:1}
+.nc > *:not(img){position:relative;z-index:2}
+.nc small{font-size:14.5px;font-weight:600;color:var(--sub);margin-bottom:10px}
+.nc strong{font-size:23px;line-height:1.42;font-weight:700;letter-spacing:-.045em}
+.nc.ph small,.nc.ph strong{color:#fff}
+.nc .ico{position:absolute;left:26px;top:28px;width:52px;height:52px;border-radius:50%;background:#FFE3D8;display:grid;place-items:center;color:var(--or)}
+.nc .ico svg{width:26px;height:26px}
+.nc.or{background:var(--or);color:#fff;width:50%;justify-self:start}
+.nc.or strong{font-size:22px}
+.nc.or .ar{position:absolute;right:22px;top:22px;width:34px;height:34px}
+.nc.or{width:auto}
+.nc.price ul{margin-top:14px;border-top:1px solid #D9D9D7;padding-top:12px}
+.nc.price li{display:flex;justify-content:space-between;font-size:15.5px;padding:5px 0;color:var(--ink2)}
+.nc.price li b{color:var(--or)}
+.nc .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.nc .badges span{font-size:13.5px;font-weight:600;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid #DDD}
+.news .sp{grid-column:1}
+
+/* cta band */
+.cta{background:#F6F6F4;margin-top:150px;padding:44px var(--pad);display:grid;grid-template-columns:30% 1fr 1fr;gap:20px;align-items:center}
+.cta h2{font-size:34px;line-height:1.38;font-weight:700;letter-spacing:-.05em}
+.cta a{background:#fff;display:flex;align-items:center;gap:28px;padding:34px 30px;min-height:140px;transition:box-shadow .2s}
+.cta a:hover{box-shadow:0 8px 30px rgba(0,0,0,.07)}
+.cta .ci{flex:0 0 78px;height:78px;border-radius:50%;background:#FFE3D8;display:grid;place-items:center;color:var(--or)}
+.cta .ci svg{width:40px;height:40px}
+.cta strong{display:block;font-size:28px;font-weight:500;letter-spacing:-.04em}
+.cta span{display:block;font-size:16px;color:var(--sub);margin-top:4px}
+
+/* footer */
+.ft{background:#5E5E5E;color:#fff;padding:70px var(--pad) 80px;display:grid;grid-template-columns:1fr auto;gap:30px 60px}
+.ft .logo b{color:#fff}
+.ft .logo small{color:#ddd}
+.ft address{font-style:normal;font-size:16px;line-height:1.85;margin-top:26px;color:#F2F2F2}
+.ft address i{font-style:normal;opacity:.5;margin:0 10px}
+.ft-r{text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.ft-tels{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.ft-tels a{font-size:14px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.12)}
+.ft-tels a:hover{background:rgba(255,255,255,.22)}
+.ft-r p{font-size:15.5px;margin-top:26px;color:#EEE}
+.ft-links{display:flex;gap:16px;margin-top:10px;font-size:15.5px}
+.ft-links a:first-child{font-weight:700}
+.ft-note{grid-column:1/-1;font-size:13px;color:#C9C9C9;border-top:1px solid rgba(255,255,255,.15);padding-top:20px}
+
+/* floating chat */
+.fab{position:fixed;right:44px;bottom:44px;z-index:60;width:66px;height:66px;border-radius:50%;background:var(--or2);color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px rgba(240,106,63,.35)}
+.fab svg{width:34px;height:34px}
+.fab-pop{position:fixed;right:44px;bottom:124px;z-index:60;width:300px;background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.16);padding:22px 22px 14px;opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s}
+.fab-pop.open{opacity:1;visibility:visible;transform:none}
+.fab-pop h4{font-size:18px;font-weight:700}
+.fab-pop p{font-size:14px;color:var(--sub);margin:4px 0 12px}
+.fab-pop a{display:flex;justify-content:space-between;padding:11px 2px;border-top:1px solid #EEE;font-size:15px}
+.fab-pop a b{color:var(--or);font-weight:700}
+.fab-pop .na{font-size:12.5px;color:#999;padding:8px 2px 0;margin:0}
+
+/* responsive */
+@media (max-width:1280px){
+  :root{--pad:44px}
+  .gnb{gap:30px}.gnb a{font-size:16px}
+  .hero-txt h1{font-size:40px}
+  .sol-p:nth-child(odd){margin-left:12%}.sol-p:nth-child(even){margin-right:12%}
+  .sol-head{padding-left:12%}
+}
+@media (max-width:1080px){
+  .gnb{display:none}
+  .hd .logo{opacity:1;pointer-events:auto}
+  .hd-tel{display:grid}
+}
+@media (max-width:900px){
+  :root{--pad:20px}
+  .hd{height:62px;background:rgba(255,255,255,.94)}
+  .logo b{font-size:18px}.logo svg{width:30px;height:30px}.hd .logo small{display:none}
+  .hero{height:auto;padding-top:62px}
+  .hero-txt{position:relative;left:auto;top:auto;width:auto;padding:36px var(--pad) 0}
+  .hero-txt h1{font-size:30px;min-height:82px}
+  .hero-txt .pill{margin-top:22px;height:48px;font-size:16px;padding:0 24px}
+  .hero-ph{position:relative;left:auto;top:auto;bottom:auto;height:260px;margin-top:30px;margin-left:var(--pad)}
+  .hero-thumbs{display:none}
+  .hero-ctrl{position:relative;left:auto;bottom:auto;padding:18px var(--pad) 0}
+  .prog{flex:1}
+  .sec{padding-top:90px}
+  .h2{font-size:26px}
+  .lab{font-size:14px}
+  .story{grid-template-columns:1fr;margin-top:32px}
+  .story .col2{padding-top:0}
+  .st-card{margin-bottom:16px}
+  .st-card .t{left:20px;bottom:20px;right:20px}
+  .st-card .t strong{font-size:21px}
+  .sol-head{padding-left:var(--pad)}
+  .sol{gap:16px;margin-top:32px}
+  .sol-p,.sol-p:nth-child(even),.sol-p:nth-child(odd){grid-template-columns:1fr;margin:0}
+  .sol-p .tx,.sol-p:nth-child(even) .tx{order:2;padding:0 var(--pad) 34px}
+  .sol-p .il{order:1;height:190px}
+  .sol-p .il svg{height:100%}
+  .sol-p p{font-size:17px}
+  .tags span{font-size:13.5px;height:30px;padding:0 12px}
+  .help{grid-template-columns:1fr;gap:34px;margin-top:32px}
+  .help-ph .bt strong{font-size:22px}.help-ph .top{font-size:17px;left:20px;top:18px}.help-ph .bt{left:20px;bottom:20px}
+  .help-ph .badge{height:36px;font-size:15px;padding:0 16px}
+  .help-ph{aspect-ratio:4/3}
+  .pslide{margin-right:calc(var(--pad) * -1)}
+  .pslide-ctrl .prog{flex:1;width:auto}
+  .ptrack{overflow-x:auto;scroll-snap-type:x mandatory;padding-right:var(--pad);scrollbar-width:none}
+  .ptrack::-webkit-scrollbar{display:none}
+  .pcard{flex-basis:240px;min-height:290px;scroll-snap-align:start}
+  .diag-head{padding-top:90px;padding-bottom:32px}
+  .diag{grid-template-columns:1fr}
+  .diag > div{padding:44px var(--pad) 50px}
+  .diag > div + div::before{left:var(--pad);right:var(--pad);top:0;width:auto;height:1px}
+  .diag .k{font-size:22px}
+  .diag h3{font-size:22px;margin:20px 0 12px}
+  .diag p{font-size:15.5px}
+  .diag .pill{align-self:flex-start;margin-top:26px}
+  .news{grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+  .news .sp{display:none}
+  .nc{padding:18px 16px}
+  .nc strong{font-size:17px}
+  .nc small{font-size:12.5px}
+  .nc .ico{left:16px;top:18px;width:42px;height:42px}
+  .nc.price,.nc.cert{grid-column:1/-1;aspect-ratio:auto;min-height:0}
+  .nc.wide{grid-column:1/-1;aspect-ratio:auto;min-height:170px}
+  .nc .ico{position:relative;left:auto;top:auto;margin-bottom:auto;flex:none}
+  .nc.price .ico,.nc.cert .ico,.nc.wide .ico{margin-bottom:20px}
+  .ft address br{display:none}
+  .cta{grid-template-columns:1fr;margin-top:90px;padding:40px var(--pad)}
+  .cta h2{font-size:24px;margin-bottom:6px}
+  .cta a{padding:22px 20px;gap:18px;min-height:0}
+  .cta .ci{flex-basis:58px;height:58px}.cta .ci svg{width:30px;height:30px}
+  .cta strong{font-size:21px}.cta span{font-size:14px}
+  .ft{grid-template-columns:1fr;padding:50px var(--pad) 110px}
+  .ft address{font-size:14px}
+  .ft address i{display:none}
+  .ft address span{display:block}
+  .ft-r{align-items:flex-start;text-align:left}
+  .ft-tels{justify-content:flex-start}
+  .fab{right:18px;bottom:18px;width:58px;height:58px}
+  .fab-pop{right:18px;left:18px;width:auto;bottom:90px}
+  .drawer-hd{height:62px}
+  .drawer-bd{grid-template-columns:1fr 1fr;gap:30px 20px;padding:20px var(--pad) 40px}
+  .drawer-bd h3{font-size:18px;margin-bottom:8px}
+  .drawer-bd li a{font-size:14.5px;padding:4px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <a class="logo" href="#top" aria-label="중부난방공사 홈">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="3" fill="#FF5624"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#FF5624" stroke-width="3" stroke-linecap="round"/></svg>
+    <span><b>중부난방공사</b><small>JUNGBU HEATING</small></span>
+  </a>
+  <nav class="gnb" aria-label="주메뉴">
+    <a href="#">회사소개</a><a href="#product">난방제품</a><a href="#product">온수기</a><a href="#news">조절기/컨벡터</a><a href="#story">공사실적</a><a href="#">온라인주문</a><a href="#contact">고객센터</a>
+  </nav>
+  <div class="hd-r">
+    <a class="ic-btn hd-tel" href="tel:041-565-9204" aria-label="전화 상담 041-565-9204"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+    <button class="ic-btn" id="menuBtn" aria-label="전체메뉴 열기" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-hd">
+    <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="3" fill="#FF5624"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#FF5624" stroke-width="3" stroke-linecap="round"/></svg><span><b>중부난방공사</b></span></a>
+    <button class="ic-btn" id="closeBtn" aria-label="전체메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <div class="drawer-bd">
+    <div><h3>회사소개</h3><ul><li><a href="#">인사말</a></li><li><a href="#">인증 현황</a></li><li><a href="#contact">직영점 안내</a></li></ul></div>
+    <div><h3>난방제품</h3><ul><li><a href="#product">(하이본) 전기온돌판넬</a></li><li><a href="#product">전기온돌강화마루</a></li><li><a href="#product">(방고래) 건식온수온돌</a></li><li><a href="#product">온돌400 · 500 · 800</a></li></ul></div>
+    <div><h3>온수기</h3><ul><li><a href="#product">고성능 전기온수기</a></li><li><a href="#product">전기보일러</a></li></ul></div>
+    <div><h3>조절기/컨벡터</h3><ul><li><a href="#news">심야전기 조절기</a></li><li><a href="#news">각종 전기조절기</a></li><li><a href="#">컨벡터</a></li></ul></div>
+    <div><h3>공사실적</h3><ul><li><a href="#story">시공 사례</a></li></ul></div>
+    <div><h3>온라인주문</h3><ul><li><a href="#">주문하기</a></li></ul></div>
+    <div><h3>고객센터</h3><ul><li><a href="#news">공지사항</a></li><li><a href="#contact">상담 · A/S 문의</a></li></ul></div>
+    <div class="drawer-tel">
+      <a class="chip" href="tel:041-565-9204">천안 본사 041-565-9204</a>
+      <a class="chip" href="tel:02-722-9204">서울 02-722-9204</a>
+      <a class="chip" href="tel:031-399-9204">군포직영점 031-399-9204</a>
+      <a class="chip" href="tel:041-356-9205">당진직영점 041-356-9205</a>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-label="메인 슬라이드">
+    <div class="hero-ph" id="heroPh">
+      <img class="on" src="assets/kia-panel2.jpg" alt="기아자동차 화성공장 전기온돌판넬 시공 현장">
+      <img src="assets/kia-finish.jpg" alt="기아자동차 화성공장 마감 공사 현장">
+      <img src="assets/kia-control.jpg" alt="실별 온도 조절기 설치 모습">
+      <img src="assets/ktng.jpg" alt="KT&amp;G 직원 휴게실 건식온수온돌 시공 현장">
+      <img src="assets/kia-gate.jpg" alt="기아자동차 화성공장 정문">
+    </div>
+    <div class="hero-txt">
+      <div class="h-slide on"><span class="cap">천안 · 서울 · 경기 · 충청권</span><h1>중부난방공사의<br>바닥 난방 솔루션</h1></div>
+      <div class="h-slide"><span class="cap">기아자동차 화성공장 · 2024</span><h1>1,100평 현장도<br>설계부터 마감까지</h1></div>
+      <div class="h-slide"><span class="cap">조절기 / 컨벡터</span><h1>조절기 하나까지<br>꼼꼼하게 챙깁니다</h1></div>
+      <div class="h-slide"><span class="cap">KT&amp;G 직원 휴게실 · 건식온수온돌</span><h1>쉬는 공간의 바닥을<br>따뜻하게</h1></div>
+      <div class="h-slide"><span class="cap">기업 · 관공서</span><h1>전문 시공팀이<br>직접 시공합니다</h1></div>
+      <a class="pill" href="#solution">자세히 보기</a>
+    </div>
+    <div class="hero-ctrl">
+      <span id="hCur">01</span><span class="prog"><i id="hBar"></i></span><span>05</span>
+      <button class="arw" id="hPrev" aria-label="이전 슬라이드"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4l-8 8 8 8"/></svg></button>
+      <button class="arw" id="hNext" aria-label="다음 슬라이드"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 4l8 8-8 8"/></svg></button>
+    </div>
+    <div class="hero-thumbs" id="hThumbs">
+      <button class="on" aria-label="1번 슬라이드"><img src="assets/kia-panel2.jpg" alt=""></button>
+      <button aria-label="2번 슬라이드"><img src="assets/kia-finish.jpg" alt=""></button>
+      <button aria-label="3번 슬라이드"><img src="assets/kia-control.jpg" alt=""></button>
+      <button aria-label="4번 슬라이드"><img src="assets/ktng.jpg" alt=""></button>
+      <button aria-label="5번 슬라이드"><img src="assets/kia-gate.jpg" alt=""></button>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="sec wrap" id="story">
+    <span class="lab">JUNGBU STORY</span>
+    <h2 class="h2">따끈따끈! 현장의 소식이 도착했습니다.<b>직접 설계하고 시공한 현장을 만나보세요.</b></h2>
+    <div class="story">
+      <div class="col1">
+        <a class="st-card" href="#"><img src="assets/kia-panel.jpg" alt="기아자동차 화성공장 전기온돌판넬 시공"><span class="t"><small>2024. 6~7월 · 1,100평 · 분임토의장 외 34개실</small><strong>기아자동차 화성공장,<br><b>전기온돌판넬</b></strong></span></a>
+        <a class="st-card" href="#"><img src="assets/refire.jpg" alt="조절기 화재 피해 재시공 현장"><span class="t"><small>2022. 5월 · 천안 동남구 원룸 28평</small><strong>조절기 화재 피해,<br><b>심야전기온돌 재시공</b></strong></span></a>
+      </div>
+      <div class="col2">
+        <a class="st-card" href="#"><img src="assets/silla.jpg" alt="신라교역 한강변 신축현장 전기온돌판넬"><span class="t"><small>2022. 4월 · 서울 강동구 고덕동 · 85평</small><strong>한강변 신라교역 신축현장,<br><b>전기온돌판넬</b></strong></span></a>
+        <a class="st-card" href="#"><img src="assets/ktng.jpg" alt="KT&amp;G 직원 휴게실 건식온수온돌"><span class="t"><small>2021. 6월 · 천안 · 55평</small><strong>KT&amp;G 직원 휴게실,<br><b>건식온수온돌</b></strong></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="sec" id="solution">
+    <div class="wrap sol-head">
+      <span class="lab">SOLUTION</span>
+      <h2 class="h2">제품 선택에서 시공, A/S까지,<b>현장에 맞는 난방이 필요하다면 여기를 보세요!</b></h2>
+    </div>
+    <div class="sol">
+      <div class="sol-p">
+        <div class="tx">
+          <svg class="q" viewBox="0 0 40 24" aria-hidden="true"><path fill="currentColor" d="M0 0h17l-6 24H3zM22 0h17l-6 24h-8z"/></svg>
+          <span class="k">바닥 난방 설계 · 시공</span>
+          <p>CAD 설계도면을 먼저 작성한 뒤 시공합니다.<br>공간에 맞춘 배치가 따뜻함의 시작입니다.</p>
+          <div class="tags"><span># 전기온돌판넬</span><span># 건식온수온돌</span><span># CAD 설계</span></div>
+        </div>
+        <div class="il" aria-hidden="true">
+          <svg viewBox="0 0 360 300" preserveAspectRatio="xMidYMax meet"><g transform="translate(40 60)"><path d="M10 190 L140 120 L290 190 L160 260Z" fill="#FFD9C9"/><path d="M10 170 L140 100 L290 170 L160 240Z" fill="#FFB797"/><path d="M10 170 L160 240 L160 260 L10 190Z" fill="#E8835C"/><path d="M160 240 L290 170 L290 190 L160 260Z" fill="#D46A44"/><g stroke="#fff" stroke-width="2" opacity=".8"><path d="M50 160 L190 230"/><path d="M85 142 L225 212"/><path d="M120 124 L260 194"/></g><path d="M10 150 L140 80 L290 150 L160 220Z" fill="#fff" stroke="#FF5624" stroke-width="2" stroke-dasharray="6 6" opacity=".9"/><g fill="none" stroke="#FF5624" stroke-width="5" stroke-linecap="round"><path d="M110 70c0-14 12-14 12-28s-12-14-12-28"/><path d="M150 82c0-14 12-14 12-28s-12-14-12-28"/><path d="M190 70c0-14 12-14 12-28s-12-14-12-28"/></g></g><text x="300" y="290" font-size="12" fill="#A7A7A5" text-anchor="end">개념도</text></svg>
+        </div>
+      </div>
+      <div class="sol-p">
+        <div class="tx">
+          <svg class="q" viewBox="0 0 40 24" aria-hidden="true"><path fill="currentColor" d="M0 0h17l-6 24H3zM22 0h17l-6 24h-8z"/></svg>
+          <span class="k">조절기 · A/S</span>
+          <p>조절기 용량 초과로 화재 피해를 입은 현장,<br>원인을 확인하고 다시 시공했습니다.</p>
+          <div class="tags"><span># 조절기 교체</span><span># 재시공</span><span># 철저한 A/S</span></div>
+        </div>
+        <div class="il" aria-hidden="true">
+          <svg viewBox="0 0 360 300" preserveAspectRatio="xMidYMax meet"><rect x="95" y="40" width="170" height="230" rx="22" fill="#fff" stroke="#E0E0DE" stroke-width="2"/><rect x="118" y="66" width="124" height="74" rx="10" fill="#2C2C2C"/><text x="180" y="116" font-size="34" font-weight="700" fill="#FF8A5C" text-anchor="middle" font-family="Pretendard Variable,sans-serif">30A</text><circle cx="148" cy="185" r="18" fill="#FFE3D8"/><circle cx="212" cy="185" r="18" fill="#FF5624"/><rect x="128" y="226" width="104" height="10" rx="5" fill="#EFEFED"/><circle cx="292" cy="70" r="30" fill="#FF5624"/><path d="M278 70l10 10 18-20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="350" y="290" font-size="12" fill="#A7A7A5" text-anchor="end">개념도</text></svg>
+        </div>
+      </div>
+      <div class="sol-p">
+        <div class="tx">
+          <svg class="q" viewBox="0 0 40 24" aria-hidden="true"><path fill="currentColor" d="M0 0h17l-6 24H3zM22 0h17l-6 24h-8z"/></svg>
+          <span class="k">기업 · 관공서 현장</span>
+          <p>분임토의장 외 34개실, 1,100평 현장도<br>전문 자격증을 갖춘 시공팀이 직접 시공했습니다.</p>
+          <div class="tags"><span># 전문건설업 등록</span><span># 자격증 시공팀</span><span># 하자 즉시 대처</span></div>
+        </div>
+        <div class="il" aria-hidden="true">
+          <svg viewBox="0 0 360 300" preserveAspectRatio="xMidYMax meet"><rect x="50" y="110" width="250" height="170" fill="#FFD9C9"/><rect x="50" y="90" width="250" height="26" fill="#FF8A5C"/><g fill="#fff">
+            <rect x="72" y="136" width="38" height="30" rx="3"/><rect x="124" y="136" width="38" height="30" rx="3"/><rect x="176" y="136" width="38" height="30" rx="3"/><rect x="228" y="136" width="38" height="30" rx="3"/><rect x="72" y="184" width="38" height="30" rx="3"/><rect x="124" y="184" width="38" height="30" rx="3"/><rect x="176" y="184" width="38" height="30" rx="3"/><rect x="228" y="184" width="38" height="30" rx="3"/></g><rect x="150" y="232" width="50" height="48" fill="#E8835C"/><rect x="30" y="276" width="300" height="8" rx="4" fill="#FF5624"/><g fill="none" stroke="#FF5624" stroke-width="4" stroke-linecap="round"><path d="M150 72c0-10 9-10 9-20s-9-10-9-20"/><path d="M180 72c0-10 9-10 9-20s-9-10-9-20"/><path d="M210 72c0-10 9-10 9-20s-9-10-9-20"/></g><text x="350" y="298" font-size="12" fill="#A7A7A5" text-anchor="end">개념도</text></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELP -->
+  <section class="sec wrap" id="product">
+    <h2 class="h2"><b>난방 고민이 있다면, 우리가 있습니다.</b>공간에 맞는 제품을 찾아드릴게요.</h2>
+    <div class="help">
+      <a class="help-ph" href="#story">
+        <img src="assets/kia-gate.jpg" alt="기아자동차 화성공장">
+        <span class="top">기아자동차 화성공장 전기온돌판넬<small>원청 현대엔지니어링 · 2024년 6~7월</small></span>
+        <span class="bt"><span class="badge">시공 스토리</span><strong>매일 4차례 안전교육,<br>건설안전기사 보유 시공기사 파견</strong></span>
+      </a>
+      <div class="pslide">
+        <div class="pslide-ctrl">
+          <span id="pCur">01</span><span class="prog"><i id="pBar"></i></span><span id="pTot">09</span>
+          <button class="arw" id="pPrev" aria-label="이전 제품"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4l-8 8 8 8"/></svg></button>
+          <button class="arw" id="pNext" aria-label="다음 제품"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 4l8 8-8 8"/></svg></button>
+        </div>
+        <div class="ptrack" id="pTrack">
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="8" y="58" width="104" height="22" rx="6" fill="#FFB797"/><rect x="8" y="50" width="104" height="14" rx="5" fill="#FF5624"/><g stroke="#fff" stroke-width="2"><path d="M34 50v14M60 50v14M86 50v14"/></g><g fill="none" stroke="#FF5624" stroke-width="4" stroke-linecap="round"><path d="M42 40c0-8 7-8 7-16s-7-8-7-16"/><path d="M66 40c0-8 7-8 7-16s-7-8-7-16"/></g></svg><small>바닥 난방</small><strong>(하이본) 전기온돌판넬</strong><span>기업 현장부터 신축 현장까지 시공한 대표 제품</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="8" y="46" width="104" height="34" rx="6" fill="#E3B48F"/><g stroke="#C98D5F" stroke-width="2"><path d="M8 57h104M8 68h104M40 46v11M78 57v11M30 68v12M90 68v12"/></g><rect x="8" y="80" width="104" height="6" rx="3" fill="#FF5624"/><g fill="none" stroke="#FF5624" stroke-width="4" stroke-linecap="round"><path d="M54 36c0-8 7-8 7-16s-7-8-7-16"/></g></svg><small>바닥 난방</small><strong>전기온돌강화마루</strong><span>마루 마감으로 구성하는 전기온돌</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="8" y="60" width="104" height="24" rx="6" fill="#DDE7F0"/><path d="M18 72h18c8 0 8-10 16-10s8 10 16 10 8-10 16-10 8 10 18 10" fill="none" stroke="#3E8EDE" stroke-width="5" stroke-linecap="round"/><g fill="none" stroke="#FF5624" stroke-width="4" stroke-linecap="round"><path d="M50 48c0-8 7-8 7-16s-7-8-7-16"/><path d="M72 48c0-8 7-8 7-16s-7-8-7-16"/></g></svg><small>바닥 난방</small><strong>(방고래) 건식온수온돌</strong><span>휴게실·사무 공간에 시공한 건식 온수 온돌</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="8" y="54" width="104" height="30" rx="6" fill="#FFD9C9"/><circle cx="34" cy="69" r="9" fill="none" stroke="#FF5624" stroke-width="4"/><circle cx="34" cy="69" r="3" fill="#FF5624"/><rect x="58" y="62" width="44" height="14" rx="4" fill="none" stroke="#FF5624" stroke-width="4"/><text x="60" y="38" font-size="20" font-weight="800" fill="#FF5624" text-anchor="middle" font-family="Pretendard Variable,sans-serif">400</text></svg><small>온돌400</small><strong>원형·평판형 초절전밀폐이중관온돌</strong><span>원형과 평판형, 두 가지 타입</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="8" y="54" width="104" height="30" rx="6" fill="#DDF0E6"/><path d="M60 14l26 10v16c0 16-12 24-26 28-14-4-26-12-26-28V24z" fill="#34A36A"/><path d="M48 40l9 9 16-18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><small>온돌500</small><strong>평판형 무전자파온돌</strong><span>평판형 무전자파 온돌</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="8" y="64" width="104" height="20" rx="6" fill="#FFD9C9"/><rect x="34" y="18" width="52" height="50" rx="8" fill="#FF8A5C"/><g fill="#fff"><rect x="42" y="28" width="36" height="6" rx="3"/><rect x="42" y="40" width="36" height="6" rx="3" opacity=".75"/><rect x="42" y="52" width="36" height="6" rx="3" opacity=".5"/></g></svg><small>온돌800</small><strong>축열식 무전자파 온돌</strong><span>축열식 무전자파 온돌</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="32" y="8" width="56" height="78" rx="10" fill="#fff" stroke="#DDD" stroke-width="2"/><rect x="42" y="18" width="36" height="14" rx="3" fill="#2C2C2C"/><path d="M60 46c8 8 10 14 6 20a8 8 0 0 1-12 0c-4-6-2-12 6-20z" fill="#FF5624"/></svg><small>온수기</small><strong>전기보일러</strong><span>바닥 난방과 함께 상담하는 전기보일러</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="36" y="6" width="48" height="84" rx="22" fill="#DDE7F0"/><rect x="36" y="6" width="48" height="84" rx="22" fill="none" stroke="#3E8EDE" stroke-width="3"/><path d="M60 34c8 9 10 15 6 21a8 8 0 0 1-12 0c-4-6-2-12 6-21z" fill="#3E8EDE"/></svg><small>온수기</small><strong>고성능 전기온수기</strong><span>필요한 곳에 설치하는 전기온수기</span></a>
+          <a class="pcard" href="#"><svg viewBox="0 0 120 96" aria-hidden="true"><rect x="30" y="10" width="60" height="76" rx="10" fill="#fff" stroke="#DDD" stroke-width="2"/><rect x="40" y="20" width="40" height="22" rx="4" fill="#2C2C2C"/><text x="60" y="37" font-size="13" font-weight="700" fill="#FF8A5C" text-anchor="middle" font-family="Pretendard Variable,sans-serif">50A</text><circle cx="50" cy="60" r="7" fill="#FFE3D8"/><circle cx="70" cy="60" r="7" fill="#FF5624"/></svg><small>조절기 / 컨벡터</small><strong>각종 전기조절기</strong><span>심야전기 DIGITAL-10 30A · 50A</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIAGNOSE -->
+  <section id="contact">
+    <div class="wrap diag-head">
+      <h2 class="h2"><b>어떤 난방이 맞을지 고민되시나요?</b>상담을 통해 맞춤 난방을 찾아보세요!</h2>
+    </div>
+    <div class="diag">
+      <div>
+        <span class="k">가정</span>
+        <h3>방바닥이 차고 난방 방식이 고민이라면,<br>우리 집에 맞는 제품을 함께 고릅니다.</h3>
+        <p>전기온돌판넬부터 건식온수온돌, 전기보일러까지 공간에 맞게 안내해 드립니다.</p>
+        <a class="pill pill--sm" href="tel:041-565-9204">가정 난방 상담 받기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div>
+        <span class="k">기업 · 관공서</span>
+        <h3>교육장 · 휴게실 · 사무 공간까지,<br>대형 현장도 맡길 수 있을까요?</h3>
+        <p>전문건설업 등록업체로서 CAD 설계도면 작성 후 자격증 시공팀이 직접 시공합니다.</p>
+        <a class="pill pill--sm" href="tel:041-565-9204">현장 시공 상담 받기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="sec wrap" id="news">
+    <h2 class="h2 h2--b"><b>새 소식,</b>중부난방공사가 먼저 전해드립니다</h2>
+    <div class="news">
+      <a class="nc ph" href="#"><img src="assets/kia-panel.jpg" alt=""><small>공지</small><strong>초절전온돌 전력량 · 전자파 비교분석</strong></a>
+      <a class="nc" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></span><small>공지</small><strong>(주)한진테크<br>NEP(신제품) 인증 획득</strong></a>
+      <a class="nc" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4-4 5 3 5-3 4 4-9 7z"/></svg></span><small>공지</small><strong>(주)ADD웰빙테크<br>협력업체 지정</strong></a>
+      <a class="nc or" href="#"><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg><strong>공지사항<br>전체 보기</strong></a>
+      <span class="sp" aria-hidden="true"></span>
+      <div class="nc price"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8v4H8z"/></svg></span><small>조절기 판매가</small><strong>심야전기 DIGITAL-10</strong><ul><li>30A<b>53,000원</b></li><li>50A (심야용 W-2)<b>70,000원</b></li></ul></div>
+      <a class="nc wide" href="#"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M12 8v5M12 16h.01"/></svg></span><small>공지</small><strong>부정클릭(동종업계)에 엄중 대처합니다</strong></a>
+      <div class="nc cert"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><small>보험 · 인증</small><strong>믿고 맡기는 시공</strong><div class="badges"><span>삼성화재 배상책임보험</span><span>K마크인증</span><span>정부조달우수제품</span></div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" aria-label="상담 바로가기">
+    <h2>따뜻함을 책임지고<br>끝까지 관리해 드립니다.</h2>
+    <a href="tel:041-565-9204"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><strong>상담 전화하기</strong><span>천안 본사 041-565-9204</span></span></a>
+    <a href="#"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l2.5 11h11L21 7H6.5"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg></span><span><strong>온라인 주문하기</strong><span>조절기 · 난방제품 주문 안내</span></span></a>
+  </section>
+</main>
+
+<footer class="ft">
+  <div>
+    <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="3" fill="#fff"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#FF8A5C" stroke-width="3" stroke-linecap="round"/></svg><span><b>(주)중부난방공사</b></span></a>
+    <address><span>충남 천안시 동남구 다가3길 4-1</span><i>|</i><span>사업자등록번호 : 312-86-69056</span><br><span>대표 : 김명찬</span><i>|</i><span>대표번호 : <a href="tel:041-565-9204">041-565-9204</a></span><i>|</i><span>이메일 : <a href="mailto:jbh9204@naver.com">jbh9204@naver.com</a></span></address>
+  </div>
+  <div class="ft-r">
+    <div class="ft-tels">
+      <a href="tel:02-722-9204">서울 02-722-9204</a>
+      <a href="tel:031-399-9204">군포직영점 031-399-9204</a>
+      <a href="tel:041-356-9205">당진직영점 041-356-9205</a>
+      <a href="tel:041-565-9204">아산직영점 · 본사 안내</a>
+    </div>
+    <p>Copyright © (주)중부난방공사. All rights reserved.</p>
+    <div class="ft-links"><a href="#">개인정보 처리방침</a><a href="#">이용약관</a><a href="#">이메일무단수집거부</a></div>
+  </div>
+  <p class="ft-note">군포직영점 : 경기 군포시 산본동 1088 · 당진직영점 : 충남 당진시 수청동 289 · 아산직영점 : 충남 아산시 모종동 55-5 (전화번호 확인 전, 본사로 안내) · 본 페이지는 리뉴얼 디자인 시안입니다.</p>
+</footer>
+
+<button class="fab" id="fab" aria-label="상담 전화 목록 열기" aria-expanded="false"><svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h22a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H15l-6 5v-5H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/><circle cx="11.5" cy="16" r="1.4" fill="currentColor"/><circle cx="17" cy="16" r="1.4" fill="currentColor"/><circle cx="22.5" cy="16" r="1.4" fill="currentColor"/></svg></button>
+<div class="fab-pop" id="fabPop" role="dialog" aria-label="상담 전화">
+  <h4>무엇을 도와드릴까요?</h4>
+  <p>가까운 곳으로 전화 주세요.</p>
+  <a href="tel:041-565-9204">천안 본사<b>041-565-9204</b></a>
+  <a href="tel:02-722-9204">서울<b>02-722-9204</b></a>
+  <a href="tel:031-399-9204">군포직영점<b>031-399-9204</b></a>
+  <a href="tel:041-356-9205">당진직영점<b>041-356-9205</b></a>
+  <p class="na">아산직영점은 본사로 안내해 드립니다.</p>
+</div>
+
+<script>
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var hd=$('#hd');
+  var onS=function(){hd.classList.toggle('is-scrolled',window.scrollY>10)};
+  window.addEventListener('scroll',onS,{passive:true});onS();
+
+  // drawer
+  var dr=$('#drawer'),mb=$('#menuBtn');
+  function setDr(o){dr.classList.toggle('open',o);dr.setAttribute('aria-hidden',String(!o));mb.setAttribute('aria-expanded',String(o));document.body.classList.toggle('no-scroll',o)}
+  mb.onclick=function(){setDr(true)};$('#closeBtn').onclick=function(){setDr(false)};
+  $$('#drawer a').forEach(function(a){a.addEventListener('click',function(){setDr(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){setDr(false);setFab(false)}});
+
+  // hero slider
+  var imgs=$$('#heroPh img'),txts=$$('.h-slide'),th=$$('#hThumbs button'),n=imgs.length,cur=0,tm;
+  function go(i){cur=(i+n)%n;imgs.forEach(function(x,k){x.classList.toggle('on',k===cur)});txts.forEach(function(x,k){x.classList.toggle('on',k===cur)});th.forEach(function(x,k){x.classList.toggle('on',k===cur)});
+    $('#hCur').textContent=('0'+(cur+1)).slice(-2);$('#hBar').style.width=((cur+1)/n*100)+'%';clearTimeout(tm);tm=setTimeout(function(){go(cur+1)},5500)}
+  $('#hPrev').onclick=function(){go(cur-1)};$('#hNext').onclick=function(){go(cur+1)};
+  th.forEach(function(b,k){b.onclick=function(){go(k)}});go(0);
+
+  // product slider
+  var tr=$('#pTrack'),cards=$$('.pcard',tr),pi=0;
+  $('#pTot').textContent=('0'+cards.length).slice(-2);
+  function pgo(i){pi=Math.max(0,Math.min(cards.length-1,i));tr.scrollLeft=cards[pi].offsetLeft-tr.offsetLeft;upd(pi)}
+  function upd(i){$('#pCur').textContent=('0'+(i+1)).slice(-2);$('#pBar').style.width=((i+1)/cards.length*100)+'%'}
+  $('#pPrev').onclick=function(){pgo(pi-1)};$('#pNext').onclick=function(){pgo(pi+1)};
+  tr.addEventListener('scroll',function(){var l=tr.scrollLeft,best=0;cards.forEach(function(c,k){if(Math.abs(c.offsetLeft-tr.offsetLeft-l)<Math.abs(cards[best].offsetLeft-tr.offsetLeft-l))best=k});pi=best;upd(best)},{passive:true});
+  upd(0);
+
+  // fab
+  var fab=$('#fab'),pop=$('#fabPop');
+  function setFab(o){pop.classList.toggle('open',o);fab.setAttribute('aria-expanded',String(o))}
+  fab.onclick=function(e){e.stopPropagation();setFab(!pop.classList.contains('open'))};
+  document.addEventListener('click',function(e){if(!pop.contains(e.target))setFab(false)});
+  $$('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault()})});
+})();
+</script>
+</body>
+</html>
