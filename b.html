@@ -291,15 +291,18 @@ ul{list-style:none}
   .drawer-bd h3{font-size:18px;margin-bottom:8px}
   .drawer-bd li a{font-size:14.5px;padding:4px 0}
 }
+
+/* 원본 로고 */
+.logo-img{display:block;height:42px;width:auto}
+.logo-chip{display:inline-flex;background:#fff;border-radius:10px;padding:10px 14px}
+.logo-chip .logo-img{height:36px}
+@media (max-width:760px){.logo-img{height:34px}.logo-chip .logo-img{height:30px}}
 </style>
 </head>
 <body>
 
 <header class="hd" id="hd">
-  <a class="logo" href="#top" aria-label="중부난방공사 홈">
-    <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="3" fill="#FF5624"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#FF5624" stroke-width="3" stroke-linecap="round"/></svg>
-    <span><b>중부난방공사</b><small>JUNGBU HEATING</small></span>
-  </a>
+  <a class="logo" href="#top" aria-label="중부난방공사 홈"><img class="logo-img" src="assets/logo.png" alt="(주)중부난방공사" width="245" height="57"></a>
   <nav class="gnb" aria-label="주메뉴">
     <a href="#">회사소개</a><a href="#product">난방제품</a><a href="#product">온수기</a><a href="#news">조절기/컨벡터</a><a href="#story">공사실적</a><a href="#">온라인주문</a><a href="#contact">고객센터</a>
   </nav>
@@ -311,7 +314,7 @@ ul{list-style:none}
 
 <div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-hd">
-    <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="3" fill="#FF5624"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#FF5624" stroke-width="3" stroke-linecap="round"/></svg><span><b>중부난방공사</b></span></a>
+    <a class="logo" href="#top" aria-label="중부난방공사 홈"><img class="logo-img" src="assets/logo.png" alt="(주)중부난방공사" width="245" height="57"></a>
     <button class="ic-btn" id="closeBtn" aria-label="전체메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
   </div>
   <div class="drawer-bd">
@@ -499,7 +502,7 @@ ul{list-style:none}
 
 <footer class="ft">
   <div>
-    <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="29" width="32" height="6" rx="3" fill="#fff"/><path d="M11 25c0-4 4-4 4-8s-4-4-4-8M20 25c0-4 4-4 4-8s-4-4-4-8M29 25c0-4 4-4 4-8s-4-4-4-8" fill="none" stroke="#FF8A5C" stroke-width="3" stroke-linecap="round"/></svg><span><b>(주)중부난방공사</b></span></a>
+    <a class="logo" href="#top" aria-label="중부난방공사 홈"><span class="logo-chip"><img class="logo-img" src="assets/logo.png" alt="(주)중부난방공사" width="245" height="57"></span></a>
     <address><span>충남 천안시 동남구 다가3길 4-1</span><i>|</i><span>사업자등록번호 : 312-86-69056</span><br><span>대표 : 김명찬</span><i>|</i><span>대표번호 : <a href="tel:041-565-9204">041-565-9204</a></span><i>|</i><span>이메일 : <a href="mailto:jbh9204@naver.com">jbh9204@naver.com</a></span></address>
   </div>
   <div class="ft-r">
